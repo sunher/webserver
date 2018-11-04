@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<meta>
+    <meta charset="UTF-8"/>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.1.js"></script>
     <style>
@@ -35,10 +35,54 @@
         .login-Container{
             width: 80%;
             height: auto;
-            border: 1px solid #d8d8d8;
+            /*border: 1px solid #d8d8d8;*/
             border-radius: 15px;
-            padding: 40px 15px;
+            /*padding: 40px 15px;*/
             max-width: 400px;
+        }
+        .tab-container{
+            display: flex;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .tab-item{
+            flex: 1;
+            line-height: 40px;
+            text-align: center;
+            background: #eee;
+            color: #fff;
+            cursor: pointer;
+        }
+        .tab-first{
+            border-right: 1px solid #d8d8d8;
+        }
+        .tab-active{
+            background: #188ae2;
+        }
+        .login-inner{
+            padding: 15px;
+            border: 1px solid #d8d8d8;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+        .username-reg{
+            padding-right: 100px;
+        }
+        .getVerity{
+            display: inline-block;
+            background: #188ae2;
+            color: #fff;
+            width: 90px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 5px;
+            float: right;
+            margin-right: -100px;
+            visibility: hidden;
+        }
+        .username-reg>.getVerity{
+            visibility: visible;
         }
         .username,.password,.cred{
             width: 100%;
@@ -62,22 +106,22 @@
             padding-left: 10px;
             font-size: 14px;
             border: 1px solid #d8d8d8;
-            border-radius: 10px;
+            border-radius: 5px;
         }
         .password{
 
         }
         .cred{
-
+            display: none;
         }
         .cred>input{
-            width: 100px;
+            width: 100%;
             float: left;
             height: 40px;
             line-height: 40px;
-            border-radius: 15px;
+            border-radius: 5px;
             border: 1px solid #d8d8d8;
-            text-align: center;
+            padding-left: 10px;
         }
         .cred>img{
             float: right;
@@ -94,7 +138,7 @@
             text-align: center;
             width: 100%;
             height: 40px;
-            border-radius: 15px;
+            border-radius: 5px;
             color: #fff;
             cursor: pointer;
         }
@@ -104,54 +148,116 @@
         .submit>button:focus{
             outline: none;
         }
+        .regist{
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="flex-container">
-        <ul class="login-Container">
-            <li class="username">
-                <label for="username">账号</label>
-                <input type="text" id="username">
-            </li>
-            <li class="password">
-                <label for="password">密码</label>
-                <input type="password" id="password">
-            </li>
-            <li class="cred">
-                <label>验证码</label>
-                <input id="cred" type="text">
-                <image></image>
-            </li>
-            <li class="submit">
-                <button onclick="upload()">登录</button>
-            </li>
-        </ul>
+        <div class="login-Container">
+            <ul class="tab-container">
+                <li class="tab-item tab-first tab-active" onclick="tab('login',this)">登录</li>
+                <li class="tab-item" onclick="tab('reg',this)">注册</li>
+            </ul>
+            <ul class="login-inner">
+                <li class="loign-li username">
+                    <label for="username">账号</label>
+                    <div class="getVerity" onclick="getVerifyCode()">获取验证码</div>
+                    <input type="email" placeholder="请输入邮箱" id="username" autocomplete="off"/>
+                </li>
+                <li class="login-li cred">
+                    <label>验证码</label>
+                    <input id="cred" type="text"/>
+
+                </li>
+                <li class="password">
+                    <label for="password">密码</label>
+                    <input type="password" id="password"/>
+                </li>
+                <li class="submit">
+                    <button onclick="upload()">登录</button>
+                    <button class="regist" onclick="regist()">注册</button>
+                </li>
+            </ul>
+        </div>
     </div>
     <script type="text/javascript">
         //不需要的布冯直接注释掉就ok
+        let host = 'http://he.sunzhuo.top:8090/hero/';
         function upload(){
-            var url = "http://localhost:8080/message/x";
-
+            var url = host + 'login';
             let username = $('#username').val();
             let password = $('#password').val();
-            let cred = $('#cred').val();
 
-            var src ={};
-            src["username"]=$("username").val();
-            src["password"]=$("password").val();
-            src["cred"]=$("cred").val();
+            var src ={
+                account: username,
+                password: password
+            };
             $.ajax({
                 url: url,
                 type: 'post',
-                data:src,
+                data: src,
                 dataType: 'json',
                 success: function(data){
-                    $("a").text(data);
+                    console.log(data)
                 },
-                error: function(xhr, msg){
-                    alert(msg);
+                error: function(err){
+                    console.log(err)
                 }
             });
+        }
+        function regist () {
+            let username = $('#username').val();
+            let password = $('#password').val();
+            let cred = $('#cred').val();
+            let param = {
+                account: username,
+                password: password
+            }
+            let url = host + 'register?verifyCode=' + cred;
+            $.ajax({
+                url: url,
+                type: 'post',
+                data: param,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+             })
+        }
+        function getVerifyCode () {
+            let email = $('#username').val();
+            if (email) {
+                let url = host + 'verifyCode?account=' + email
+                $.ajax({
+                    url: url,
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data){
+                        console.log(data)
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+                })
+            }
+        }
+        function tab (label,that) {
+            $(that).addClass("tab-active").siblings().removeClass("tab-active");
+            if("reg" === label){
+                $(".username").addClass("username-reg");
+                $(".cred").show();
+                $(".regist").show().siblings().hide();
+            }
+            else{
+                $(".username").removeClass("username-reg");
+                $(".cred").hide();
+                $(".regist").hide().siblings().show();
+            }
         }
     </script>
 </body>
