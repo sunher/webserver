@@ -223,6 +223,7 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data)
+                    alert('注册成功，请使用注册邮箱登录')
                 },
                 error: function (err) {
                     console.log(err)
@@ -238,7 +239,7 @@
                     type: 'get',
                     dataType: 'json',
                     success: function(data){
-                        console.log(data)
+                        alert('验证码将发到邮箱，请查收')
                     },
                     error: function(err){
                         console.log(err);

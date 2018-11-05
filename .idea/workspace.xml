@@ -46,12 +46,9 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="262" column="7" lean-forward="true" selection-start-line="262" selection-start-column="7" selection-end-line="262" selection-end-column="7" />
+            <state relative-caret-position="3030">
+              <caret line="202" column="37" lean-forward="true" selection-start-line="202" selection-start-column="37" selection-end-line="202" selection-end-column="37" />
               <folding>
-                <element signature="e#4097#4698#0" />
-                <element signature="e#4726#5397#0" />
-                <element signature="e#5433#5953#0" />
                 <element signature="e#7160#7402#0" />
               </folding>
             </state>
@@ -103,49 +100,6 @@
               <item name="hero" type="b2602c69:ProjectViewProjectNode" />
               <item name="hero" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="hero" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hero" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hero" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hero" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hero" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hero" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hero" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hero" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hero" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hero" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hero" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hero" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -182,12 +136,12 @@
       <option name="presentableId" value="Default" />
       <updated>1541322385413</updated>
       <workItem from="1541322387198" duration="2801000" />
-      <workItem from="1541333051517" duration="4972000" />
+      <workItem from="1541333051517" duration="5448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7773000" />
+    <option name="totallyTimeSpent" value="8249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -245,9 +199,6 @@
         <state relative-caret-position="705">
           <caret line="47" column="25" lean-forward="true" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
           <folding>
-            <element signature="e#4097#4698#0" />
-            <element signature="e#4726#5397#0" />
-            <element signature="e#5433#5953#0" />
             <element signature="e#7160#7402#0" />
           </folding>
         </state>
@@ -276,12 +227,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="262" column="7" lean-forward="true" selection-start-line="262" selection-start-column="7" selection-end-line="262" selection-end-column="7" />
+        <state relative-caret-position="3030">
+          <caret line="202" column="37" lean-forward="true" selection-start-line="202" selection-start-column="37" selection-end-line="202" selection-end-column="37" />
           <folding>
-            <element signature="e#4097#4698#0" />
-            <element signature="e#4726#5397#0" />
-            <element signature="e#5433#5953#0" />
             <element signature="e#7160#7402#0" />
           </folding>
         </state>
