@@ -92,14 +92,14 @@ public class HttpUtil {
         userInfo.setAccount("331471400@qq.com");
         userInfo.setAccountType("email");
         userInfo.setPassword("123456");
-        String url = "http://114.115.146.222:8090/hero/verifyCode?account=331471400@qq.com";
-        System.out.print(sendGet(url));
+//        String url = "http://he.sunzhuo.top:8090/hero/verifyCode?account=331471400@qq.com";
+//        System.out.print(sendGet(url));
 
 //        String url1 = "http://127.0.0.1:8090/hero/register?verifyCode=J8J7UB";
 //        System.out.print(sendPost(new Gson().toJson(userInfo),url1));
 //        http://he.sunzhuo.top/hero/verifyCode?account=331471400@qq.com
-//        String url2 = "http://he.sunzhuo.top:8090/hero/login";
-//        System.out.print(sendPost(new Gson().toJson(userInfo),url2));
+        String url2 = "http://he.sunzhuo.top:8090/hero/login";
+        System.out.print(sendPost(new Gson().toJson(userInfo),url2));
     }
 
 

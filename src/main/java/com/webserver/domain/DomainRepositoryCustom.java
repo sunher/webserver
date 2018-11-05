@@ -2,6 +2,6 @@ package com.webserver.domain;
 
 public interface DomainRepositoryCustom {
 
-    int updateDomain(String domain, boolean displayAds);
+    long updateDomain(String domain, boolean displayAds);
 
 }

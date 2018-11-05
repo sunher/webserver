@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
-<meta>
+<html lang="en"/>
+<head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.1.js"></script>
@@ -187,17 +187,14 @@
         let host = 'http://he.sunzhuo.top:8090/hero/';
         function upload(){
             var url = host + 'login';
-            let username = $('#username').val();
-            let password = $('#password').val();
-
-            var src ={
-                account: username,
-                password: password
-            };
+            var src = {}
+            src["account"] = $("#username").val();
+            src["password"] = $("#password").val();
             $.ajax({
                 url: url,
                 type: 'post',
-                data: src,
+                contentType: "application/json",
+                data: JSON.stringify(src),
                 dataType: 'json',
                 success: function(data){
                     console.log(data)
@@ -211,15 +208,15 @@
             let username = $('#username').val();
             let password = $('#password').val();
             let cred = $('#cred').val();
-            let param = {
-                account: username,
-                password: password
-            }
+            var src = {}
+            src["account"] = $("#username").val();
+            src["password"] = $("#password").val();
             let url = host + 'register?verifyCode=' + cred;
             $.ajax({
                 url: url,
                 type: 'post',
-                data: param,
+                contentType: "application/json",
+                data: JSON.stringify(src),
                 dataType: 'json',
                 success: function (data) {
                     console.log(data)
@@ -237,6 +234,7 @@
                 $.ajax({
                     url: url,
                     type: 'get',
+                    contentType: "application/json",
                     dataType: 'json',
                     success: function(data){
                         alert('验证码将发到邮箱，请查收')

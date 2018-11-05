@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class SpringBootWebApplication {
@@ -36,8 +37,8 @@ public class SpringBootWebApplication {
             userInfo.setAccountType("email");
             userInfo.setPassword("123456");
             userInfoRepository.save(userInfo);
-            UserInfo obj = userInfoRepository.findOne(userInfo.getAccount());
-            System.out.println(obj);
+            Optional<UserInfo> obj = userInfoRepository.findById(userInfo.getAccount());
+            System.out.println(obj.get());
 
         };
 
@@ -54,8 +55,8 @@ public class SpringBootWebApplication {
             domain.setDomain("xxx");
             domain.setId(7L);
             domainRepository.save(domain);
-            Domain obj = domainRepository.findOne(7L);
-            System.out.println("Domain"+obj);
+//            Domain obj = domainRepository.findOne(7L);
+//            System.out.println("Domain"+obj);
 
 
 

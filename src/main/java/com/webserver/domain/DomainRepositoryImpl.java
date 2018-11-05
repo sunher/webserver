@@ -1,6 +1,7 @@
 package com.webserver.domain;
 
 import com.mongodb.WriteResult;
+import com.mongodb.client.result.UpdateResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -16,16 +17,16 @@ public class DomainRepositoryImpl implements DomainRepositoryCustom {
     MongoTemplate mongoTemplate;
 
     @Override
-    public int updateDomain(String domain, boolean displayAds) {
+    public long updateDomain(String domain, boolean displayAds) {
 
         Query query = new Query(Criteria.where("domain").is(domain));
         Update update = new Update();
         update.set("displayAds", displayAds);
 
-        WriteResult result = mongoTemplate.updateFirst(query, update, Domain.class);
+        UpdateResult result = mongoTemplate.updateFirst(query, update, Domain.class);
 
         if(result!=null)
-            return result.getN();
+            return result.getModifiedCount();
         else
             return 0;
 

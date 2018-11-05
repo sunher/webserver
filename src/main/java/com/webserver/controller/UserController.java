@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -33,8 +34,8 @@ public class UserController {
     @PostMapping("/hero/login")
     public ResponseEntity<String> login(@Valid @RequestBody UserInfo userInfo) throws IOException, URISyntaxException {
         logger.info("login {}",userInfo);
-        UserInfo userInfo4check = userInfoRepository.findOne(userInfo.getAccount());
-        if(Objects.isNull(userInfo4check)||!userInfo4check.getPassword().equals(userInfo.getPassword())){
+        Optional<UserInfo> userInfo4check = userInfoRepository.findById(userInfo.getAccount());
+        if(!userInfo4check.isPresent()||!userInfo4check.get().getPassword().equals(userInfo.getPassword())){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
